@@ -33,7 +33,8 @@ with Browser("phantomjs") as browser:
     browser.visit("http://www.manta.com/")
 
     # submit the search form...
-    browser.fill("[name='search']", "software")
+    search = browser.find_by_name('search')
+    browser.fill(search, "software")
     button = browser.find_by_css(".icon-search")
     button.submit()
 
