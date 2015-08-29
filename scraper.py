@@ -30,14 +30,10 @@ with Browser("phantomjs") as browser:
     browser.driver.set_window_size(1280, 1024)
 
     # Open the page you want...
-    browser.visit("https://morph.io")
+    browser.visit("http://www.manta.com/")
 
     # submit the search form...
-    browser.fill("q", "parliament")
-    button = browser.find_by_css("button[type='submit']")
-    button.click()
+    browser.fill("search", "software")
+    button = browser.find_by_css(".icon-search")
+    button.submit()
 
-    # Scrape the data you like...
-    links = browser.find_by_css(".search-results .list-group-item")
-    for link in links:
-        print link['href']
